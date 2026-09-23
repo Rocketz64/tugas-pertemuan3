@@ -12,4 +12,14 @@ model User {
   email     String   @unique
   name      String?
   createdAt DateTime @default(now())
+  balance   Float
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  type        String
+  amount      Float
+  date        DateTime
+  description String?
+  userId      Int
 }
