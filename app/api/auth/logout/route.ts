@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NextResponse } from 'next/server';
 import { destroySession } from '@/lib/auth';
 
@@ -10,3 +11,12 @@ export async function POST() {
     return NextResponse.json({ error: 'Gagal melakukan logout' }, { status: 500 });
   }
 }
+=======
+import { NextResponse } from "next/server";
+import { destroySession } from "@/lib/auth";
+
+export async function POST() {
+  await destroySession();
+  return NextResponse.json({ ok: true });
+}
+>>>>>>> feature/auth-session-cookies

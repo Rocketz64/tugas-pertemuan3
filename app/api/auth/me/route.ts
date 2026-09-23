@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NextResponse } from 'next/server';
 import { getSessionUser, getThemePreference } from '@/lib/auth';
 
@@ -20,3 +21,19 @@ export async function GET() {
     return NextResponse.json({ authenticated: false, user: null }, { status: 500 });
   }
 }
+=======
+import { NextResponse } from "next/server";
+import { getCurrentUser } from "@/lib/auth";
+
+export async function GET() {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return NextResponse.json({ user: null }, { status: 401 });
+  }
+
+  return NextResponse.json({
+    user: { id: user.id, name: user.name, email: user.email },
+  });
+}
+>>>>>>> feature/auth-session-cookies
