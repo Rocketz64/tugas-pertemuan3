@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { SESSION_COOKIE } from "@/lib/auth";
+import { SESSION_COOKIE } from "@/lib/constants"; // <-- Ubah impor ke /lib/constants
 
 const PROTECTED_PATHS = ["/dashboard", "/transactions", "/mngTransaksi"];
 
