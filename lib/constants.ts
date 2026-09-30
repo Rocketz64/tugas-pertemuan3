@@ -1,0 +1,1 @@
+export const SESSION_COOKIE = "session_id"; // sesuaikan nama cookie kamu jika beda

@@ -17,8 +17,24 @@ model User {
 
   sessions     Session[]
   transactions Transaction[]
-
+  budgets      Budget[]      // <-- Tambahkan baris relasi ini di model User
+  
   @@map("users")
+}
+
+model Budget {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  month     Int
+  year      Int
+  amount    Float
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, month, year])
+  @@map("budgets")
 }
 
 model Session {
