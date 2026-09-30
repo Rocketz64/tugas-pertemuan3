@@ -8,6 +8,22 @@ import { TransactionModal } from '@/components/TransactionModal';
 import { DeleteConfirmModal } from '@/components/DeleteConfirmModal';
 import { Transaction, FinancialSummary } from '@/lib/transactions';
 import { SafeUser } from '@/lib/auth';
+import BudgetWidget from '@/components/BudgetWidget';
+
+export function DashboardClient({ user, initialTransactions, initialSummary }: Props) {
+  return (
+    <div className="space-y-6">
+      {/* Bagian Salam / Header */}
+      <h1 className="text-2xl font-bold">Halo, {user.name}!</h1>
+
+      {/* Panggil BudgetWidget di sini */}
+      <BudgetWidget />
+
+      {/* Bagian transaksi / kartu ringkasan lainnya */}
+      {/* ... */}
+    </div>
+  );
+}
 
 interface DashboardClientProps {
   user: SafeUser;
