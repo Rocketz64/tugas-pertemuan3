@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
-import bcrypt from 'bcryptjs';
-import crypto from 'crypto';
+import bcrypt from 'bcryptjs'; // untuk mengamankan password
+import crypto from 'crypto'; // untuk membuat id sesi
 import { query } from './db';
 
 export interface SafeUser {
@@ -127,5 +127,7 @@ export async function setThemePreference(theme: Theme): Promise<void> {
     path: '/',
     maxAge: 60 * 60 * 24 * 365,
     sameSite: 'lax',
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
   });
 }
